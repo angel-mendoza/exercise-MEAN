@@ -11,7 +11,7 @@ import {
 const app = express.Router()
 const debug = new Debug('platzi-overflow:auth')
 
-
+// api/auth/signin
 app.post('/signin', async (req, res, next) => {
   const { email, password } = req.body
   const user = await User.findOne({ email })
@@ -31,8 +31,8 @@ app.post('/signin', async (req, res, next) => {
     message: 'Login succeded',
     token,
     userId: user._id,
-    firstName: user.firstName,
-    lastName: user.lastName,
+    first_name: user.first_name,
+    last_name: user.last_name,
     email: user.email
   })
 })
